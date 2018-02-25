@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-refresher (ionRefresh)="addOneSong($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+  
+  <ion-card *ngFor="let item of allMusic">
+    <img [src]="item.image" />
+    <ion-card-content>
+      <ion-card-title>
+        {{item.name}}
+      </ion-card-title>
+      <ion-item>
+        <button ion-button item-left (click)="shareSong(item)">
+          Share
+          </button>
+          <button ion-button item-right>Play</button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card> 
+</ion-content>
